@@ -61,7 +61,7 @@ Suppose a benchmark has two kinds of questions:
 - **Easy questions (70% of the benchmark):** each model answers correctly with probability 0.95.
 - **Hard questions (30%):** each model answers correctly with probability only 0.20.
 
-Each model's overall accuracy is $0.7 \times 0.95 + 0.3 \times 0.20 = 72.5\%$.
+Each model's overall accuracy is $`0.7 \times 0.95 + 0.3 \times 0.20 = 72.5\%`$.
 
 Now take a team of **5 such models** and let the majority decide.
 
@@ -134,81 +134,81 @@ First, people believed more voters means more accuracy (Condorcet). Then statist
 
 ## 4.1 Setup and notation
 
-- **Questions (items)** $x = 1, \dots, N$, each with a correct answer $y(x)$.
-- **Models** $k = 1, \dots, K$, each giving answer $a_k(x)$.
-- **Correctness indicator** $Z_{kx} = 1$ if model $k$ is right on question $x$, else $0$. **Error indicator** $E_{kx} = 1 - Z_{kx}$.
-- **Accuracy** $p_k = \frac{1}{N}\sum_x Z_{kx}$, **error rate** $e_k = 1 - p_k$.
+- **Questions (items)** $`x = 1, \dots, N`$, each with a correct answer $`y(x)`$.
+- **Models** $`k = 1, \dots, K`$, each giving answer $`a_k(x)`$.
+- **Correctness indicator** $`Z_{kx} = 1`$ if model $`k`$ is right on question $`x`$, else $`0`$. **Error indicator** $`E_{kx} = 1 - Z_{kx}`$.
+- **Accuracy** $`p_k = \frac{1}{N}\sum_x Z_{kx}`$, **error rate** $`e_k = 1 - p_k`$.
 
 Everything below is about how the error indicators of different models relate to each other.
 
 ## 4.2 Why independence makes voting powerful (Condorcet)
 
-If $K$ (odd) models are independent and each is right with probability $p$, the chance that the majority is right is
+If $`K`$ (odd) models are independent and each is right with probability $`p`$, the chance that the majority is right is
 
-$\displaystyle A_K = \sum_{m=(K+1)/2}^{K} \binom{K}{m} p^m (1-p)^{K-m}.$
+$`\displaystyle A_K = \sum_{m=(K+1)/2}^{K} \binom{K}{m} p^m (1-p)^{K-m}.`$
 
-**Example:** $K = 5$, $p = 0.7$: $A_5 = 10(0.7)^3(0.3)^2 + 5(0.7)^4(0.3) + (0.7)^5 \approx 0.309 + 0.360 + 0.168 = 0.837$. As $K \to \infty$, $A_K \to 1$ whenever $p > 1/2$.
+**Example:** $`K = 5`$, $`p = 0.7`$: $`A_5 = 10(0.7)^3(0.3)^2 + 5(0.7)^4(0.3) + (0.7)^5 \approx 0.309 + 0.360 + 0.168 = 0.837`$. As $`K \to \infty`$, $`A_K \to 1`$ whenever $`p > 1/2`$.
 
 **Plain meaning:** if mistakes are random coin flips, enough voters wash them out.
 
 ## 4.3 How correlation breaks this
 
-Suppose all pairs of models have the same error correlation $\rho$. Then the average of $K$ correctness indicators has variance
+Suppose all pairs of models have the same error correlation $`\rho`$. Then the average of $`K`$ correctness indicators has variance
 
-$\displaystyle \mathrm{Var}\!\left(\tfrac1K\textstyle\sum_k Z_k\right)=\frac{p(1-p)}{K}\bigl[1+(K-1)\rho\bigr].$
+$`\displaystyle \mathrm{Var}\!\left(\tfrac1K\textstyle\sum_k Z_k\right)=\frac{p(1-p)}{K}\bigl[1+(K-1)\rho\bigr].`$
 
 Define the **effective number of independent voters**
 
-$\displaystyle K_{\text{eff}}=\frac{K}{1+(K-1)\rho}\;\longrightarrow\;\frac1\rho\quad(K\to\infty).$
+$`\displaystyle K_{\text{eff}}=\frac{K}{1+(K-1)\rho}\;\longrightarrow\;\frac1\rho\quad(K\to\infty).`$
 
-**Plain meaning:** with correlation $\rho=0.3$, even infinitely many models are worth only about $3.3$ independent ones. (This is a rule of thumb about averaging; majority vote is a tail event, so treat $K_{\text{eff}}$ as a guide, not an exact law.)
+**Plain meaning:** with correlation $`\rho=0.3`$, even infinitely many models are worth only about $`3.3`$ independent ones. (This is a rule of thumb about averaging; majority vote is a tail event, so treat $`K_{\text{eff}}`$ as a guide, not an exact law.)
 
 ## 4.4 The "question difficulty" model and the voting ceiling
 
-A very natural way correlation arises: **some questions are just harder.** Let $\theta(x)$ be the probability that a randomly chosen model from the population answers question $x$ correctly. Assume that, *given the question*, models err independently with this probability. Then:
+A very natural way correlation arises: **some questions are just harder.** Let $`\theta(x)`$ be the probability that a randomly chosen model from the population answers question $`x`$ correctly. Assume that, *given the question*, models err independently with this probability. Then:
 
-- Average accuracy: $p = \mathbb{E}[\theta(x)]$.
-- Correlation between two models' correctness: $\mathrm{Cov}(Z_i, Z_j) = \mathrm{Var}(\theta)$, so $\rho = \mathrm{Var}(\theta)/\bigl(p(1-p)\bigr)$.
-- Majority-vote accuracy of $K$ models:
+- Average accuracy: $`p = \mathbb{E}[\theta(x)]`$.
+- Correlation between two models' correctness: $`\mathrm{Cov}(Z_i, Z_j) = \mathrm{Var}(\theta)`$, so $`\rho = \mathrm{Var}(\theta)/\bigl(p(1-p)\bigr)`$.
+- Majority-vote accuracy of $`K`$ models:
 
-  $\displaystyle A_K=\mathbb{E}_x\Bigl[\Pr\bigl(\mathrm{Bin}(K,\theta(x))>K/2\bigr)\Bigr].$
+  $`\displaystyle A_K=\mathbb{E}_x\Bigl[\Pr\bigl(\mathrm{Bin}(K,\theta(x))>K/2\bigr)\Bigr].`$
 
 - As the number of voters grows:
 
-  $\displaystyle \boxed{A_\infty=\Pr_x\bigl(\theta(x)>\tfrac12\bigr)}$
+  $`\displaystyle \boxed{A_\infty=\Pr_x\bigl(\theta(x)>\tfrac12\bigr)}`$
 
-**Plain meaning:** the best a voting team can ever do is the share of questions on which *most models in the population are right*. On questions where most models are wrong ($\theta<1/2$), more voting just makes the wrong answer win more reliably.
+**Plain meaning:** the best a voting team can ever do is the share of questions on which *most models in the population are right*. On questions where most models are wrong ($`\theta<1/2`$), more voting just makes the wrong answer win more reliably.
 
-**Check with Section 2.2:** $\theta = 0.95$ on 70% of questions and $0.20$ on 30%. Then $p=0.725$, $\mathrm{Var}(\theta)=0.1181$, $\rho = 0.1181/(0.725\times 0.275)\approx 0.59$, so $1/\rho \approx 1.7$ effective voters; and $A_\infty = 0.70$. Accuracy goes $72.5\% \to 71.7\%$ (five voters) $\to 70\%$ (infinite voters): *more voters, lower accuracy.*
+**Check with Section 2.2:** $`\theta = 0.95`$ on 70% of questions and $`0.20`$ on 30%. Then $`p=0.725`$, $`\mathrm{Var}(\theta)=0.1181`$, $`\rho = 0.1181/(0.725\times 0.275)\approx 0.59`$, so $`1/\rho \approx 1.7`$ effective voters; and $`A_\infty = 0.70`$. Accuracy goes $`72.5\% \to 71.7\%`$ (five voters) $`\to 70\%`$ (infinite voters): *more voters, lower accuracy.*
 
-(If $\theta\sim\text{Beta}(a,b)$, then $\rho=1/(a+b+1)$, a convenient formula for simulations.)
+(If $`\theta\sim\text{Beta}(a,b)`$, then $`\rho=1/(a+b+1)`$, a convenient formula for simulations.)
 
 ## 4.5 The hard ceiling for any combination method: the all-wrong rate
 
-Let $\beta$ be the probability that **every** model in the team is wrong on the same question:
+Let $`\beta`$ be the probability that **every** model in the team is wrong on the same question:
 
-$\displaystyle \beta = \Pr\bigl(E_1 = E_2 = \cdots = E_K = 1\bigr).$
+$`\displaystyle \beta = \Pr\bigl(E_1 = E_2 = \cdots = E_K = 1\bigr).`$
 
-Any method that outputs one of the models' answers (voting, routing, a judge choosing among them, mixture-of-agents selecting one) has accuracy at most $1-\beta$. This ceiling is policy-independent. Importantly, **average pairwise correlation does not determine $\beta$**: different dependence structures with the same pairwise correlations can have different $\beta$. So $\beta$ must be modeled or measured directly.
+Any method that outputs one of the models' answers (voting, routing, a judge choosing among them, mixture-of-agents selecting one) has accuracy at most $`1-\beta`$. This ceiling is policy-independent. Importantly, **average pairwise correlation does not determine $`\beta`$**: different dependence structures with the same pairwise correlations can have different $`\beta`$. So $`\beta`$ must be modeled or measured directly.
 
-If models were independent, $\beta=\prod_k e_k$. In Section 2.2's example this is $0.275^5\approx 0.16\%$, while the real value is about $9.8\%$.
+If models were independent, $`\beta=\prod_k e_k`$. In Section 2.2's example this is $`0.275^5\approx 0.16\%`$, while the real value is about $`9.8\%`$.
 
 ## 4.6 Multi-answer questions: correct answers agree, wrong answers may scatter
 
 For a question with several options, models that are wrong can pick *different* wrong answers. Then plurality voting can still succeed. What breaks voting is **agreement on the same wrong answer**. So we must track two things:
 
 1. **Correlation of correctness** (do they fail on the same questions?), and
-2. **Wrong-answer agreement**: $A^{\text{wrong}}_{ij} = \Pr\bigl(a_i(x) = a_j(x) \mid \text{both wrong}\bigr)$. For a 4-option question with uniformly random wrong picks, the chance baseline is $1/3$; observed values far above that mean shared mistakes are *the same* mistakes.
+2. **Wrong-answer agreement**: $`A^{\text{wrong}}_{ij} = \Pr\bigl(a_i(x) = a_j(x) \mid \text{both wrong}\bigr)`$. For a 4-option question with uniformly random wrong picks, the chance baseline is $`1/3`$; observed values far above that mean shared mistakes are *the same* mistakes.
 
 ## 4.7 Measuring similarity fairly (capability-adjusted overlap)
 
 Two accurate models agree a lot simply because both are correct on easy questions. To measure *shared mistakes*, we use error-focused, accuracy-adjusted measures.
 
-- **Double-fault:** $\mathrm{DF}_{ij}=\Pr(E_i=1,E_j=1)$.
-- **Excess co-failure:** $\mathrm{Cov}(E_i,E_j)=\mathrm{DF}_{ij}-e_ie_j$ (how much more often they fail together than independence predicts).
-- **Phi correlation:** $\phi_{ij}=\mathrm{Cov}(E_i,E_j)/\sqrt{e_i(1-e_i)e_j(1-e_j)}$.
-- **Adjusted phi:** $\phi^{\text{adj}}_{ij}=\phi_{ij}/\phi^{\max}_{ij}$ where, for $a=\min(e_i,e_j)$ and $b=\max(e_i,e_j)$, the largest phi possible given the two error rates is $\phi^{\max}=\sqrt{\dfrac{a(1-b)}{b(1-a)}}$. (This removes the part of phi that is forced by the two models having different accuracies.)
-- **Chance-adjusted agreement (kappa style):** $\kappa_{ij}=(c_{\text{obs}}-c_{\exp})/(1-c_{\exp})$ with $c_{\text{obs}}=\Pr(Z_i=Z_j)$ and $c_{\exp}=p_ip_j+(1-p_i)(1-p_j)$.
+- **Double-fault:** $`\mathrm{DF}_{ij}=\Pr(E_i=1,E_j=1)`$.
+- **Excess co-failure:** $`\mathrm{Cov}(E_i,E_j)=\mathrm{DF}_{ij}-e_ie_j`$ (how much more often they fail together than independence predicts).
+- **Phi correlation:** $`\phi_{ij}=\mathrm{Cov}(E_i,E_j)/\sqrt{e_i(1-e_i)e_j(1-e_j)}`$.
+- **Adjusted phi:** $`\phi^{\text{adj}}_{ij}=\phi_{ij}/\phi^{\max}_{ij}`$ where, for $`a=\min(e_i,e_j)`$ and $`b=\max(e_i,e_j)`$, the largest phi possible given the two error rates is $`\phi^{\max}=\sqrt{\dfrac{a(1-b)}{b(1-a)}}`$. (This removes the part of phi that is forced by the two models having different accuracies.)
+- **Chance-adjusted agreement (kappa style):** $`\kappa_{ij}=(c_{\text{obs}}-c_{\exp})/(1-c_{\exp})`$ with $`c_{\text{obs}}=\Pr(Z_i=Z_j)`$ and $`c_{\exp}=p_ip_j+(1-p_i)(1-p_j)`$.
 - **CAPA** (from earlier research): a probabilistic, chance-adjusted similarity based on mistake overlap; we will use the authors' definition and code.
 
 ## 4.8 Where shared failure comes from (mechanisms we can test)
@@ -223,56 +223,56 @@ Two accurate models agree a lot simply because both are correct on easy question
 
 ## 4.9 Verification theory: why a checker from the same family is weaker
 
-Let $C=1$ mean the generator's answer is correct, with prior $p_0=\Pr(C=1)$. A verifier either accepts or rejects. Its **true-accept rate** is $\beta_v=\Pr(\text{accept}\mid C=1)$ and its **false-accept rate** on a *particular wrong answer* $x$ is $\alpha(x)=\Pr(\text{accept}\mid C=0,x)$.
+Let $`C=1`$ mean the generator's answer is correct, with prior $`p_0=\Pr(C=1)`$. A verifier either accepts or rejects. Its **true-accept rate** is $`\beta_v=\Pr(\text{accept}\mid C=1)`$ and its **false-accept rate** on a *particular wrong answer* $`x`$ is $`\alpha(x)=\Pr(\text{accept}\mid C=0,x)`$.
 
-- If $k$ gates are **conditionally independent** with constant false-accept rate $\bar\alpha$ and accept all correct answers, the reliability of an answer passed by all $k$ gates is
+- If $`k`$ gates are **conditionally independent** with constant false-accept rate $`\bar\alpha`$ and accept all correct answers, the reliability of an answer passed by all $`k`$ gates is
 
-  $\displaystyle r_k=\frac{p_0}{p_0+(1-p_0)\bar\alpha^{\,k}},$
+  $`\displaystyle r_k=\frac{p_0}{p_0+(1-p_0)\bar\alpha^{\,k}},`$
 
-  and failure falls **exponentially** in $k$.
-- If false-accept rates differ across wrong answers, $\alpha\sim G$, with moments $m_k=\mathbb{E}[\alpha^k]$, then (under the assumption that gates are exchangeable given the answer)
+  and failure falls **exponentially** in $`k`$.
+- If false-accept rates differ across wrong answers, $`\alpha\sim G`$, with moments $`m_k=\mathbb{E}[\alpha^k]`$, then (under the assumption that gates are exchangeable given the answer)
 
-  $\displaystyle r_k=\frac{p_0}{p_0+(1-p_0)\,m_k}.$
+  $`\displaystyle r_k=\frac{p_0}{p_0+(1-p_0)\,m_k}.`$
 
-  Because answers with $\alpha$ near 1 survive many gates, failure falls only **polynomially**. The correlation between two verdicts on a wrong answer is
+  Because answers with $`\alpha`$ near 1 survive many gates, failure falls only **polynomially**. The correlation between two verdicts on a wrong answer is
 
-  $\displaystyle \rho_v=\frac{\mathrm{Var}(\alpha)}{\bar\alpha(1-\bar\alpha)}\quad(\,=1/(a+b+1)\text{ if }\alpha\sim\mathrm{Beta}(a,b)\,).$
+  $`\displaystyle \rho_v=\frac{\mathrm{Var}(\alpha)}{\bar\alpha(1-\bar\alpha)}\quad(\,=1/(a+b+1)\text{ if }\alpha\sim\mathrm{Beta}(a,b)\,).`$
 
-- If a fraction $1-\pi$ of wrong answers is *never caught* (a **blind-spot mass** at $\alpha=1$), reliability saturates below 1:
+- If a fraction $`1-\pi`$ of wrong answers is *never caught* (a **blind-spot mass** at $`\alpha=1`$), reliability saturates below 1:
 
-  $\displaystyle r_\infty=\frac{p_0}{p_0+(1-p_0)(1-\pi)}<1.$
+  $`\displaystyle r_\infty=\frac{p_0}{p_0+(1-p_0)(1-\pi)}<1.`$
 
-**Worked example (from the theory's source and rechecked by hand):** $p_0=0.5$, $\bar\alpha=0.3$, $\rho_v=0.3$ (so $a=0.7$, $b\approx1.63$). The independence formula claims $r_5=99.8\%$; the correlated formula gives $r_5=1/(1+m_5)$ with $m_5=\prod_{j=0}^{4}\frac{a+j}{a+b+j}\approx0.049$, i.e. $r_5\approx95.3\%$. Failure is underestimated about twentyfold at five gates.
+**Worked example (from the theory's source and rechecked by hand):** $`p_0=0.5`$, $`\bar\alpha=0.3`$, $`\rho_v=0.3`$ (so $`a=0.7`$, $`b\approx1.63`$). The independence formula claims $`r_5=99.8\%`$; the correlated formula gives $`r_5=1/(1+m_5)`$ with $`m_5=\prod_{j=0}^{4}\frac{a+j}{a+b+j}\approx0.049`$, i.e. $`r_5\approx95.3\%`$. Failure is underestimated about twentyfold at five gates.
 
 **Plain meaning:** the answers a verifier misses are not random. They are the answers that look right to that verifier, and a same-family generator produces exactly those. Adding more gates from the same family keeps meeting the same blind spots.
 
 ## 4.10 Our central modeling idea: separate difficulty, family and lineage
 
-We model the probability that model $k$ answers question $x$ correctly with a **multilevel (hierarchical) logistic model**:
+We model the probability that model $`k`$ answers question $`x`$ correctly with a **multilevel (hierarchical) logistic model**:
 
-$\displaystyle \operatorname{logit}\Pr(Z_{kx}=1)=\mu+w_k+u_x+v_{f(k),x}+r_{\ell(k),x},$
+$`\displaystyle \operatorname{logit}\Pr(Z_{kx}=1)=\mu+w_k+u_x+v_{f(k),x}+r_{\ell(k),x},`$
 
-where $f(k)$ is the family and $\ell(k)$ the lineage of model $k$, and
+where $`f(k)`$ is the family and $`\ell(k)`$ the lineage of model $`k`$, and
 
-- $w_k\sim N(0,\sigma_w^2)$: **model ability** (a stronger model is right more often everywhere);
-- $u_x\sim N(0,\sigma_u^2)$: **question difficulty shared by everyone**;
-- $v_{f,x}\sim N(0,\sigma_f^2)$: **extra difficulty shared within a family** (family blind spots);
-- $r_{\ell,x}\sim N(0,\sigma_\ell^2)$: **extra difficulty shared within a lineage** (inherited blind spots).
+- $`w_k\sim N(0,\sigma_w^2)`$: **model ability** (a stronger model is right more often everywhere);
+- $`u_x\sim N(0,\sigma_u^2)`$: **question difficulty shared by everyone**;
+- $`v_{f,x}\sim N(0,\sigma_f^2)`$: **extra difficulty shared within a family** (family blind spots);
+- $`r_{\ell,x}\sim N(0,\sigma_\ell^2)`$: **extra difficulty shared within a lineage** (inherited blind spots).
 
 On the latent (logit) scale, the covariance between two models' tendencies on the same question is:
 
 | Two models are... | Shared variance |
 |---|---|
-| unrelated (different family, different lineage) | $\sigma_u^2$ |
-| same family, different lineage | $\sigma_u^2+\sigma_f^2$ |
-| different family, same lineage (for example a distilled student of another family's teacher) | $\sigma_u^2+\sigma_\ell^2$ |
-| same family and same lineage | $\sigma_u^2+\sigma_f^2+\sigma_\ell^2$ |
+| unrelated (different family, different lineage) | $`\sigma_u^2`$ |
+| same family, different lineage | $`\sigma_u^2+\sigma_f^2`$ |
+| different family, same lineage (for example a distilled student of another family's teacher) | $`\sigma_u^2+\sigma_\ell^2`$ |
+| same family and same lineage | $`\sigma_u^2+\sigma_f^2+\sigma_\ell^2`$ |
 
 **The number we really care about** is the share of shared failure that **switching to a different family and lineage can remove**:
 
-$\displaystyle \mathcal A=\frac{\sigma_f^2+\sigma_\ell^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2}.$
+$`\displaystyle \mathcal A=\frac{\sigma_f^2+\sigma_\ell^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2}.`$
 
-If $\mathcal A$ is large, diversification pays; if it is small, the problem is in the questions themselves and the remedy must come from elsewhere (tools, retrieval, executable checks, human review).
+If $`\mathcal A`$ is large, diversification pays; if it is small, the problem is in the questions themselves and the remedy must come from elsewhere (tools, retrieval, executable checks, human review).
 
 ---
 
@@ -280,13 +280,13 @@ If $\mathcal A$ is large, diversification pays; if it is small, the problem is i
 
 ## 5.1 Data
 
-- A roster of $K$ open-weight models with recorded **family** $f(k)$, **lineage** $\ell(k)$, size, and type (base, instruct, reasoning, distilled student).
-- Benchmarks of $N$ questions each, in two answer formats where possible (multiple choice and free-response).
-- Output: the **correctness matrix** $Z\in\{0,1\}^{K\times N}$ and the **answer matrix** $a_k(x)$.
+- A roster of $`K`$ open-weight models with recorded **family** $`f(k)`$, **lineage** $`\ell(k)`$, size, and type (base, instruct, reasoning, distilled student).
+- Benchmarks of $`N`$ questions each, in two answer formats where possible (multiple choice and free-response).
+- Output: the **correctness matrix** $`Z\in\{0,1\}^{K\times N}`$ and the **answer matrix** $`a_k(x)`$.
 
 ## 5.2 Experiment 1: the relationship ladder (descriptive)
 
-For each relationship type $r$ in the ladder:
+For each relationship type $`r`$ in the ladder:
 
 1. same model, different seed or temperature,
 2. base model vs its own instruct version,
@@ -295,19 +295,19 @@ For each relationship type $r$ in the ladder:
 5. distilled student vs the instruct version of its own base,
 6. unrelated models (different family and lineage),
 
-form the set $\mathcal P_r$ of model pairs and compute
+form the set $`\mathcal P_r`$ of model pairs and compute
 
-$\displaystyle \Omega_r=\frac{1}{|\mathcal P_r|}\sum_{(i,j)\in\mathcal P_r}\phi^{\text{adj}}_{ij}.$
+$`\displaystyle \Omega_r=\frac{1}{|\mathcal P_r|}\sum_{(i,j)\in\mathcal P_r}\phi^{\text{adj}}_{ij}.`$
 
-To keep capability from confounding the comparison, we also report $\Omega_r$ restricted to accuracy-matched pairs (accuracy difference below a preset tolerance). Uncertainty comes from **bootstrapping the questions** (not the model pairs, since pairs sharing a model are not independent).
+To keep capability from confounding the comparison, we also report $`\Omega_r`$ restricted to accuracy-matched pairs (accuracy difference below a preset tolerance). Uncertainty comes from **bootstrapping the questions** (not the model pairs, since pairs sharing a model are not independent).
 
 ## 5.3 Experiment 2: variance decomposition
 
-Fit the model of Section 4.10 with a Bayesian multilevel logistic regression. Report posterior means and credible intervals for $\sigma_u^2$, $\sigma_f^2$, $\sigma_\ell^2$, $\sigma_w^2$, the share $\mathcal A$, and the **latent intraclass correlations**
+Fit the model of Section 4.10 with a Bayesian multilevel logistic regression. Report posterior means and credible intervals for $`\sigma_u^2`$, $`\sigma_f^2`$, $`\sigma_\ell^2`$, $`\sigma_w^2`$, the share $`\mathcal A`$, and the **latent intraclass correlations**
 
-$\displaystyle \mathrm{ICC}_{\text{univ}}=\frac{\sigma_u^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2+\pi^2/3},\quad \mathrm{ICC}_{\text{fam}}=\frac{\sigma_f^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2+\pi^2/3},$
+$`\displaystyle \mathrm{ICC}_{\text{univ}}=\frac{\sigma_u^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2+\pi^2/3},\quad \mathrm{ICC}_{\text{fam}}=\frac{\sigma_f^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2+\pi^2/3},`$
 
-and similarly for lineage ($\pi^2/3$ is the logistic residual variance).
+and similarly for lineage ($`\pi^2/3`$ is the logistic residual variance).
 
 **Identifiability requirement:** family and lineage effects can only be separated if the roster has (a) at least two models per family, and (b) distilled models whose teacher belongs to a different family than their base. The roster is designed around this.
 
@@ -315,47 +315,47 @@ and similarly for lineage ($\pi^2/3$ is the logistic residual variance).
 
 ## 5.4 Experiment 3: predicting the ceiling for unseen teams
 
-For a team $S$ of models, the model implies
+For a team $`S`$ of models, the model implies
 
-$\displaystyle \beta_S=\mathbb{E}_{u,v,r}\Bigl[\prod_{k\in S}\bigl(1-\sigma(\mu+w_k+u+v_{f(k)}+r_{\ell(k)})\bigr)\Bigr],$
+$`\displaystyle \beta_S=\mathbb{E}_{u,v,r}\Bigl[\prod_{k\in S}\bigl(1-\sigma(\mu+w_k+u+v_{f(k)}+r_{\ell(k)})\bigr)\Bigr],`$
 
-where $\sigma(\cdot)$ is the logistic function and the expectation is over the random effects (computed by simulation). Majority accuracy $A_S=\Pr(\text{more than half of }S\text{ correct})$ is obtained the same way.
+where $`\sigma(\cdot)`$ is the logistic function and the expectation is over the random effects (computed by simulation). Majority accuracy $`A_S=\Pr(\text{more than half of }S\text{ correct})`$ is obtained the same way.
 
 **Baselines to beat:**
 
-- **Independence:** $\beta_S=\prod_{k\in S}e_k$.
-- **Single-factor copula (one shared "difficulty" for everyone):** with latent $L_k=\sqrt{\rho}\,\xi+\sqrt{1-\rho}\,\varepsilon_k$ ($\xi,\varepsilon_k$ standard normal) and model $k$ wrong when $L_k\le t_k=\Phi^{-1}(e_k)$,
+- **Independence:** $`\beta_S=\prod_{k\in S}e_k`$.
+- **Single-factor copula (one shared "difficulty" for everyone):** with latent $`L_k=\sqrt{\rho}\,\xi+\sqrt{1-\rho}\,\varepsilon_k`$ ($`\xi,\varepsilon_k`$ standard normal) and model $`k`$ wrong when $`L_k\le t_k=\Phi^{-1}(e_k)`$,
 
-  $\displaystyle \beta_S=\mathbb{E}_\xi\Bigl[\prod_{k\in S}\Phi\!\Bigl(\tfrac{t_k-\sqrt\rho\,\xi}{\sqrt{1-\rho}}\Bigr)\Bigr],$
+  $`\displaystyle \beta_S=\mathbb{E}_\xi\Bigl[\prod_{k\in S}\Phi\!\Bigl(\tfrac{t_k-\sqrt\rho\,\xi}{\sqrt{1-\rho}}\Bigr)\Bigr],`$
 
-  with $\rho$ calibrated from tetrachoric correlations.
-- **Effective voters:** $K_{\text{eff}}=K/(1+(K-1)\bar\rho)$ from average pairwise correlation.
+  with $`\rho`$ calibrated from tetrachoric correlations.
+- **Effective voters:** $`K_{\text{eff}}=K/(1+(K-1)\bar\rho)`$ from average pairwise correlation.
 - **Adjusted pairwise correlation** and **CAPA / double-fault** summaries.
 
-**Held-out evaluation:** leave one *family* out (and separately one *lineage* out), fit on the rest, predict $\beta_S$ and $A_S$ for teams that include the held-out models (their family and lineage effects drawn from the fitted prior), and compare to the observed values. The error metric is $|\hat\beta_S-\beta_S^{\text{obs}}|$ and $|\hat A_S-A_S^{\text{obs}}|$ with bootstrap intervals.
+**Held-out evaluation:** leave one *family* out (and separately one *lineage* out), fit on the rest, predict $`\beta_S`$ and $`A_S`$ for teams that include the held-out models (their family and lineage effects drawn from the fitted prior), and compare to the observed values. The error metric is $`|\hat\beta_S-\beta_S^{\text{obs}}|`$ and $`|\hat A_S-A_S^{\text{obs}}|`$ with bootstrap intervals.
 
 ## 5.5 Experiment 4 (stretch): verification on real models
 
-For a generator $G$ and a verifier family $F$ (several models per family, plus an executable checker as a control):
+For a generator $`G`$ and a verifier family $`F`$ (several models per family, plus an executable checker as a control):
 
-1. Take **$G$'s own wrong answers** as the test population.
-2. For each wrong answer $i$, collect $R$ verdicts (from verifiers sampled from the family, or repeated sampling of one verifier), giving $X_i\sim\mathrm{Bin}(R,\alpha_i)$.
-3. Estimate $\bar\alpha=\frac1n\sum_i X_i/R$ and the second moment
+1. Take **$`G`$'s own wrong answers** as the test population.
+2. For each wrong answer $`i`$, collect $`R`$ verdicts (from verifiers sampled from the family, or repeated sampling of one verifier), giving $`X_i\sim\mathrm{Bin}(R,\alpha_i)`$.
+3. Estimate $`\bar\alpha=\frac1n\sum_i X_i/R`$ and the second moment
 
-   $\displaystyle \hat m_2=\frac1n\sum_i\frac{X_i(X_i-1)}{R(R-1)},\qquad \hat\rho_v=\frac{\hat m_2-\bar\alpha^2}{\bar\alpha(1-\bar\alpha)}.$
+   $`\displaystyle \hat m_2=\frac1n\sum_i\frac{X_i(X_i-1)}{R(R-1)},\qquad \hat\rho_v=\frac{\hat m_2-\bar\alpha^2}{\bar\alpha(1-\bar\alpha)}.`$
 
-4. Fit $G=\pi\,\mathrm{Beta}(a,b)+(1-\pi)\,\delta_1$ to estimate the **blind-spot mass** $1-\pi$.
-5. **Falsification test:** fit on cascades of up to $k=3$ gates, predict reliability for $k=6$ to $8$ real cascades, and compare to the independence extrapolation.
+4. Fit $`G=\pi\,\mathrm{Beta}(a,b)+(1-\pi)\,\delta_1`$ to estimate the **blind-spot mass** $`1-\pi`$.
+5. **Falsification test:** fit on cascades of up to $`k=3`$ gates, predict reliability for $`k=6`$ to $`8`$ real cascades, and compare to the independence extrapolation.
 
 ## 5.6 Hypotheses (written down before looking at data)
 
 | ID | Statement | What a result means |
 |---|---|---|
-| H1a | Capability-adjusted overlap $\Omega_r$ decreases along the ladder (closer relationships overlap more). | Supports that relationship drives shared failure. |
+| H1a | Capability-adjusted overlap $`\Omega_r`$ decreases along the ladder (closer relationships overlap more). | Supports that relationship drives shared failure. |
 | H1b | A distilled student's errors overlap more with its teacher than with its base model's instruct version (or the reverse; we test both directions). | Tells us whether lineage or base pretraining dominates inherited mistakes. |
-| H2 | $\sigma_f^2$ and $\sigma_\ell^2$ exceed a pre-set smallest effect of interest. | Family and lineage add shared failure beyond question difficulty. |
+| H2 | $`\sigma_f^2`$ and $`\sigma_\ell^2`$ exceed a pre-set smallest effect of interest. | Family and lineage add shared failure beyond question difficulty. |
 | H2b | The universal-difficulty share is larger in free-response than in multiple-choice format. | Answer format moves the all-wrong tail. |
-| H3 | The multilevel model has lower held-out error for $\beta_S$ and $A_S$ than the single-factor and pairwise baselines. | Structure helps prediction beyond a single shared-difficulty factor. |
+| H3 | The multilevel model has lower held-out error for $`\beta_S`$ and $`A_S`$ than the single-factor and pairwise baselines. | Structure helps prediction beyond a single shared-difficulty factor. |
 | H4a (stretch) | Same-family or same-lineage verifiers show larger blind-spot mass than cross-family verifiers at matched verifier accuracy. | Direct evidence on why same-family checking is weak. |
 | H4b (stretch) | Low-order fits extrapolate to deeper cascades better than the independence formula. | Validates the correlated-verifier theory on real models. |
 | H4c (control) | An executable checker has near-zero blind-spot mass on code and exact-answer math. | Confirms the measurement works. |
@@ -374,8 +374,8 @@ A null or reversed result is still a result: for example "family adds nothing be
 ## 5.8 Deliverables (what the final paper will contain)
 
 1. **Figure 1:** the relationship ladder (adjusted overlap by relationship type, with intervals).
-2. **Figure 2:** variance components and the "avoidable share" $\mathcal A$ per benchmark and format.
-3. **Figure 3:** predicted vs observed all-wrong rate $\beta_S$ for held-out teams, for our model and each baseline.
+2. **Figure 2:** variance components and the "avoidable share" $`\mathcal A`$ per benchmark and format.
+3. **Figure 3:** predicted vs observed all-wrong rate $`\beta_S`$ for held-out teams, for our model and each baseline.
 4. **Table 1:** held-out prediction errors of all methods.
 5. **(Stretch) Figure 4:** blind-spot mass by verifier relationship, and extrapolation test.
 6. **Released data:** correctness and answer matrices, roster metadata, and analysis code.
@@ -435,7 +435,7 @@ A null or reversed result is still a result: for example "family adds nothing be
 ## 6.4 What to replicate first (to validate your pipeline)
 
 1. **Wrong-answer agreement vs the 1/3 chance baseline** (Kim et al.): confirms your correctness and answer extraction.
-2. **All-wrong rate $\beta$ and single-factor underestimation** (Chen): confirms your ceiling computation.
+2. **All-wrong rate $`\beta`$ and single-factor underestimation** (Chen): confirms your ceiling computation.
 3. **Adjusted-phi relation to two-model lift** (Ali): confirms your ensemble code.
 4. **Partial correlation of double-fault with voting gain after capability control** (D. Kim): confirms your capability controls.
 5. **Synthetic recovery of verifier moments** (Han): confirms the stretch pipeline before touching real models.
@@ -457,8 +457,8 @@ Prior work establishes that LLM errors are correlated, that correlation grows wi
 - **Family:** models from the same development line.
 - **Lineage:** chain of influence, for example a student trained on a teacher's outputs.
 - **Distillation:** training a smaller model to imitate a larger model's outputs.
-- **All-wrong rate ($\beta$):** share of questions on which every model in the team is wrong.
-- **Ceiling:** the best any method that picks one team member's answer can achieve, namely $1-\beta$.
+- **All-wrong rate ($`\beta`$):** share of questions on which every model in the team is wrong.
+- **Ceiling:** the best any method that picks one team member's answer can achieve, namely $`1-\beta`$.
 - **Blind-spot mass:** share of wrong answers that a checker never catches.
 - **Capability-adjusted:** compared after accounting for the models' different accuracy levels.
 - **Hierarchical / multilevel model:** a statistical model with several layers of shared effects (question, family, lineage, model).
