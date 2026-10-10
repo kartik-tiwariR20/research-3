@@ -2,11 +2,7 @@
 
 ## Where Does Shared LLM Failure Come From? A Lineage-Aware Analysis of Open-Weight Models for Voting and Verification
 
-*Target venue: AAAI-27 workshop (open-source models only). Document purpose: explain, in plain language and then in full mathematical detail, what the problem is, what has been done before, and exactly what we will do.*
-
-**How to read this file:** Sections 1 to 3 are written so that anyone (even without a machine-learning background) can follow them. Sections 4 and 5 give the full theory and mathematics. Section 6 lists the earlier research we must read and what to take from each. A glossary is at the end.
-
-**Evidence labels used in Section 3 and Section 6:** **[checked]** = I found and read this in a search during this project (often only an abstract or snippet, so verify before citing). **[memory]** = from my background knowledge; verify authors, year and venue before citing.
+*Target venue: AAAI-27 workshop (open-source models only).
 
 ---
 
