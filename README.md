@@ -2,7 +2,7 @@
 
 ## Where Does Shared LLM Failure Come From? A Lineage-Aware Analysis of Open-Weight Models for Voting and Verification
 
-*Target venue: AAAI-27 workshop (open-source models only).
+*Target venue: AAAI-27 workshop (open-source models only). 
 
 ---
 
@@ -145,9 +145,7 @@ Everything below is about how the error indicators of different models relate to
 
 If $K$ (odd) models are independent and each is right with probability $p$, the chance that the majority is right is
 
-```math
-A_K = \sum_{m=(K+1)/2}^{K} \binom{K}{m} p^m (1-p)^{K-m}.
-```
+$\displaystyle A_K = \sum_{m=(K+1)/2}^{K} \binom{K}{m} p^m (1-p)^{K-m}.$
 
 **Example:** $K = 5$, $p = 0.7$: $A_5 = 10(0.7)^3(0.3)^2 + 5(0.7)^4(0.3) + (0.7)^5 \approx 0.309 + 0.360 + 0.168 = 0.837$. As $K \to \infty$, $A_K \to 1$ whenever $p > 1/2$.
 
@@ -157,15 +155,11 @@ A_K = \sum_{m=(K+1)/2}^{K} \binom{K}{m} p^m (1-p)^{K-m}.
 
 Suppose all pairs of models have the same error correlation $\rho$. Then the average of $K$ correctness indicators has variance
 
-```math
-\mathrm{Var}\!\left(\tfrac1K\textstyle\sum_k Z_k\right)=\frac{p(1-p)}{K}\bigl[1+(K-1)\rho\bigr].
-```
+$\displaystyle \mathrm{Var}\!\left(\tfrac1K\textstyle\sum_k Z_k\right)=\frac{p(1-p)}{K}\bigl[1+(K-1)\rho\bigr].$
 
 Define the **effective number of independent voters**
 
-```math
-K_{\text{eff}}=\frac{K}{1+(K-1)\rho}\;\longrightarrow\;\frac1\rho\quad(K\to\infty).
-```
+$\displaystyle K_{\text{eff}}=\frac{K}{1+(K-1)\rho}\;\longrightarrow\;\frac1\rho\quad(K\to\infty).$
 
 **Plain meaning:** with correlation $\rho=0.3$, even infinitely many models are worth only about $3.3$ independent ones. (This is a rule of thumb about averaging; majority vote is a tail event, so treat $K_{\text{eff}}$ as a guide, not an exact law.)
 
@@ -177,15 +171,11 @@ A very natural way correlation arises: **some questions are just harder.** Let $
 - Correlation between two models' correctness: $\mathrm{Cov}(Z_i, Z_j) = \mathrm{Var}(\theta)$, so $\rho = \mathrm{Var}(\theta)/\bigl(p(1-p)\bigr)$.
 - Majority-vote accuracy of $K$ models:
 
-  ```math
-  A_K=\mathbb{E}_x\Bigl[\Pr\bigl(\mathrm{Bin}(K,\theta(x))>K/2\bigr)\Bigr].
-  ```
+  $\displaystyle A_K=\mathbb{E}_x\Bigl[\Pr\bigl(\mathrm{Bin}(K,\theta(x))>K/2\bigr)\Bigr].$
 
 - As the number of voters grows:
 
-  ```math
-  \boxed{A_\infty=\Pr_x\bigl(\theta(x)>\tfrac12\bigr)}
-  ```
+  $\displaystyle \boxed{A_\infty=\Pr_x\bigl(\theta(x)>\tfrac12\bigr)}$
 
 **Plain meaning:** the best a voting team can ever do is the share of questions on which *most models in the population are right*. On questions where most models are wrong ($\theta<1/2$), more voting just makes the wrong answer win more reliably.
 
@@ -197,9 +187,7 @@ A very natural way correlation arises: **some questions are just harder.** Let $
 
 Let $\beta$ be the probability that **every** model in the team is wrong on the same question:
 
-```math
-\beta = \Pr\bigl(E_1 = E_2 = \cdots = E_K = 1\bigr).
-```
+$\displaystyle \beta = \Pr\bigl(E_1 = E_2 = \cdots = E_K = 1\bigr).$
 
 Any method that outputs one of the models' answers (voting, routing, a judge choosing among them, mixture-of-agents selecting one) has accuracy at most $1-\beta$. This ceiling is policy-independent. Importantly, **average pairwise correlation does not determine $\beta$**: different dependence structures with the same pairwise correlations can have different $\beta$. So $\beta$ must be modeled or measured directly.
 
@@ -239,28 +227,20 @@ Let $C=1$ mean the generator's answer is correct, with prior $p_0=\Pr(C=1)$. A v
 
 - If $k$ gates are **conditionally independent** with constant false-accept rate $\bar\alpha$ and accept all correct answers, the reliability of an answer passed by all $k$ gates is
 
-  ```math
-  r_k=\frac{p_0}{p_0+(1-p_0)\bar\alpha^{\,k}},
-  ```
+  $\displaystyle r_k=\frac{p_0}{p_0+(1-p_0)\bar\alpha^{\,k}},$
 
   and failure falls **exponentially** in $k$.
 - If false-accept rates differ across wrong answers, $\alpha\sim G$, with moments $m_k=\mathbb{E}[\alpha^k]$, then (under the assumption that gates are exchangeable given the answer)
 
-  ```math
-  r_k=\frac{p_0}{p_0+(1-p_0)\,m_k}.
-  ```
+  $\displaystyle r_k=\frac{p_0}{p_0+(1-p_0)\,m_k}.$
 
   Because answers with $\alpha$ near 1 survive many gates, failure falls only **polynomially**. The correlation between two verdicts on a wrong answer is
 
-  ```math
-  \rho_v=\frac{\mathrm{Var}(\alpha)}{\bar\alpha(1-\bar\alpha)}\quad(\,=1/(a+b+1)\text{ if }\alpha\sim\mathrm{Beta}(a,b)\,).
-  ```
+  $\displaystyle \rho_v=\frac{\mathrm{Var}(\alpha)}{\bar\alpha(1-\bar\alpha)}\quad(\,=1/(a+b+1)\text{ if }\alpha\sim\mathrm{Beta}(a,b)\,).$
 
 - If a fraction $1-\pi$ of wrong answers is *never caught* (a **blind-spot mass** at $\alpha=1$), reliability saturates below 1:
 
-  ```math
-  r_\infty=\frac{p_0}{p_0+(1-p_0)(1-\pi)}<1.
-  ```
+  $\displaystyle r_\infty=\frac{p_0}{p_0+(1-p_0)(1-\pi)}<1.$
 
 **Worked example (from the theory's source and rechecked by hand):** $p_0=0.5$, $\bar\alpha=0.3$, $\rho_v=0.3$ (so $a=0.7$, $b\approx1.63$). The independence formula claims $r_5=99.8\%$; the correlated formula gives $r_5=1/(1+m_5)$ with $m_5=\prod_{j=0}^{4}\frac{a+j}{a+b+j}\approx0.049$, i.e. $r_5\approx95.3\%$. Failure is underestimated about twentyfold at five gates.
 
@@ -270,9 +250,7 @@ Let $C=1$ mean the generator's answer is correct, with prior $p_0=\Pr(C=1)$. A v
 
 We model the probability that model $k$ answers question $x$ correctly with a **multilevel (hierarchical) logistic model**:
 
-```math
-\operatorname{logit}\Pr(Z_{kx}=1)=\mu+w_k+u_x+v_{f(k),x}+r_{\ell(k),x},
-```
+$\displaystyle \operatorname{logit}\Pr(Z_{kx}=1)=\mu+w_k+u_x+v_{f(k),x}+r_{\ell(k),x},$
 
 where $f(k)$ is the family and $\ell(k)$ the lineage of model $k$, and
 
@@ -292,9 +270,7 @@ On the latent (logit) scale, the covariance between two models' tendencies on th
 
 **The number we really care about** is the share of shared failure that **switching to a different family and lineage can remove**:
 
-```math
-\mathcal A=\frac{\sigma_f^2+\sigma_\ell^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2}.
-```
+$\displaystyle \mathcal A=\frac{\sigma_f^2+\sigma_\ell^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2}.$
 
 If $\mathcal A$ is large, diversification pays; if it is small, the problem is in the questions themselves and the remedy must come from elsewhere (tools, retrieval, executable checks, human review).
 
@@ -321,9 +297,7 @@ For each relationship type $r$ in the ladder:
 
 form the set $\mathcal P_r$ of model pairs and compute
 
-```math
-\Omega_r=\frac{1}{|\mathcal P_r|}\sum_{(i,j)\in\mathcal P_r}\phi^{\text{adj}}_{ij}.
-```
+$\displaystyle \Omega_r=\frac{1}{|\mathcal P_r|}\sum_{(i,j)\in\mathcal P_r}\phi^{\text{adj}}_{ij}.$
 
 To keep capability from confounding the comparison, we also report $\Omega_r$ restricted to accuracy-matched pairs (accuracy difference below a preset tolerance). Uncertainty comes from **bootstrapping the questions** (not the model pairs, since pairs sharing a model are not independent).
 
@@ -331,9 +305,7 @@ To keep capability from confounding the comparison, we also report $\Omega_r$ re
 
 Fit the model of Section 4.10 with a Bayesian multilevel logistic regression. Report posterior means and credible intervals for $\sigma_u^2$, $\sigma_f^2$, $\sigma_\ell^2$, $\sigma_w^2$, the share $\mathcal A$, and the **latent intraclass correlations**
 
-```math
-\mathrm{ICC}_{\text{univ}}=\frac{\sigma_u^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2+\pi^2/3},\quad \mathrm{ICC}_{\text{fam}}=\frac{\sigma_f^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2+\pi^2/3},
-```
+$\displaystyle \mathrm{ICC}_{\text{univ}}=\frac{\sigma_u^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2+\pi^2/3},\quad \mathrm{ICC}_{\text{fam}}=\frac{\sigma_f^2}{\sigma_u^2+\sigma_f^2+\sigma_\ell^2+\pi^2/3},$
 
 and similarly for lineage ($\pi^2/3$ is the logistic residual variance).
 
@@ -345,9 +317,7 @@ and similarly for lineage ($\pi^2/3$ is the logistic residual variance).
 
 For a team $S$ of models, the model implies
 
-```math
-\beta_S=\mathbb{E}_{u,v,r}\Bigl[\prod_{k\in S}\bigl(1-\sigma(\mu+w_k+u+v_{f(k)}+r_{\ell(k)})\bigr)\Bigr],
-```
+$\displaystyle \beta_S=\mathbb{E}_{u,v,r}\Bigl[\prod_{k\in S}\bigl(1-\sigma(\mu+w_k+u+v_{f(k)}+r_{\ell(k)})\bigr)\Bigr],$
 
 where $\sigma(\cdot)$ is the logistic function and the expectation is over the random effects (computed by simulation). Majority accuracy $A_S=\Pr(\text{more than half of }S\text{ correct})$ is obtained the same way.
 
@@ -356,9 +326,7 @@ where $\sigma(\cdot)$ is the logistic function and the expectation is over the r
 - **Independence:** $\beta_S=\prod_{k\in S}e_k$.
 - **Single-factor copula (one shared "difficulty" for everyone):** with latent $L_k=\sqrt{\rho}\,\xi+\sqrt{1-\rho}\,\varepsilon_k$ ($\xi,\varepsilon_k$ standard normal) and model $k$ wrong when $L_k\le t_k=\Phi^{-1}(e_k)$,
 
-  ```math
-  \beta_S=\mathbb{E}_\xi\Bigl[\prod_{k\in S}\Phi\!\Bigl(\tfrac{t_k-\sqrt\rho\,\xi}{\sqrt{1-\rho}}\Bigr)\Bigr],
-  ```
+  $\displaystyle \beta_S=\mathbb{E}_\xi\Bigl[\prod_{k\in S}\Phi\!\Bigl(\tfrac{t_k-\sqrt\rho\,\xi}{\sqrt{1-\rho}}\Bigr)\Bigr],$
 
   with $\rho$ calibrated from tetrachoric correlations.
 - **Effective voters:** $K_{\text{eff}}=K/(1+(K-1)\bar\rho)$ from average pairwise correlation.
@@ -374,9 +342,7 @@ For a generator $G$ and a verifier family $F$ (several models per family, plus a
 2. For each wrong answer $i$, collect $R$ verdicts (from verifiers sampled from the family, or repeated sampling of one verifier), giving $X_i\sim\mathrm{Bin}(R,\alpha_i)$.
 3. Estimate $\bar\alpha=\frac1n\sum_i X_i/R$ and the second moment
 
-   ```math
-   \hat m_2=\frac1n\sum_i\frac{X_i(X_i-1)}{R(R-1)},\qquad \hat\rho_v=\frac{\hat m_2-\bar\alpha^2}{\bar\alpha(1-\bar\alpha)}.
-   ```
+   $\displaystyle \hat m_2=\frac1n\sum_i\frac{X_i(X_i-1)}{R(R-1)},\qquad \hat\rho_v=\frac{\hat m_2-\bar\alpha^2}{\bar\alpha(1-\bar\alpha)}.$
 
 4. Fit $G=\pi\,\mathrm{Beta}(a,b)+(1-\pi)\,\delta_1$ to estimate the **blind-spot mass** $1-\pi$.
 5. **Falsification test:** fit on cascades of up to $k=3$ gates, predict reliability for $k=6$ to $8$ real cascades, and compare to the independence extrapolation.
