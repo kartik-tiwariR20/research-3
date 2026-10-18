@@ -1,0 +1,7 @@
+benchmark,format,template,seed,temperature,a,b,relationship,accuracy_matched,n,error_a,error_b,double_fault,excess_cofailure,phi,adjusted_phi,kappa,wrong_agreement,wrong_chance_uniform,both_wrong_n,capa_onehot
+gsm8k,numeric,direct,17,0.0,mistralai/Mistral-7B-Instruct-v0.3,mistralai/Mistral-Nemo-Instruct-2407,same_family|same_family_different_size,False,1,1.0,0.0,0.0,0.0,,,0.0,,,0,
+gsm8k,numeric,direct,17,0.0,mistralai/Mistral-7B-v0.3,mistralai/Mistral-Nemo-Instruct-2407,same_family|same_family_different_size,True,1,1.0,1.0,1.0,0.0,,,,0.0,,1,
+gsm8k,numeric,reasoned,17,0.0,mistralai/Mistral-7B-Instruct-v0.3,mistralai/Mistral-Nemo-Instruct-2407,same_family|same_family_different_size,False,5,0.4,0.0,0.0,0.0,,,0.0,,,0,
+gsm8k,numeric,reasoned,17,0.0,mistralai/Mistral-7B-v0.3,mistralai/Mistral-Nemo-Instruct-2407,same_family|same_family_different_size,False,1,1.0,0.0,0.0,0.0,,,0.0,,,0,
+mmlu_pro,mc,direct,17,0.0,mistralai/Mistral-7B-Instruct-v0.3,mistralai/Mistral-Nemo-Instruct-2407,same_family|same_family_different_size,True,10,0.5,0.5,0.4,0.15000000000000002,0.6000000000000001,0.6000000000000001,0.6000000000000001,0.25,0.11904761904761904,4,0.3044918236389981
+mmlu_pro,mc,reasoned,17,0.0,mistralai/Mistral-7B-Instruct-v0.3,mistralai/Mistral-Nemo-Instruct-2407,same_family|same_family_different_size,True,10,0.5,0.5,0.5,0.25,1.0,1.0,1.0,0.4,0.11746031746031745,5,0.5831552829278378
