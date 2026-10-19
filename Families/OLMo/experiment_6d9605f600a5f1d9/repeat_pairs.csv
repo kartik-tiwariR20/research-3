@@ -1,0 +1,5 @@
+model,benchmark,format,condition_a,condition_b,n,error_a,error_b,double_fault,excess_cofailure,phi,adjusted_phi,kappa,wrong_agreement,wrong_chance_uniform,both_wrong_n,capa_onehot
+allenai/OLMo-2-1124-13B-Instruct,gsm8k,numeric,direct|17|0.0,reasoned|17|0.0,4,0.25,0.25,0.25,0.1875,1.0,1.0,1.0,0.0,,1,
+allenai/OLMo-2-1124-13B-Instruct,mmlu_pro,mc,direct|17|0.0,reasoned|17|0.0,5,0.8,0.8,0.8,0.15999999999999992,0.9999999999999997,0.9999999999999997,1.0,0.25,0.1111111111111111,4,0.32500000000000007
+allenai/OLMo-2-1124-7B-Instruct,gsm8k,numeric,direct|17|0.0,reasoned|17|0.0,12,0.0,0.3333333333333333,0.0,0.0,,,-3.3306690738754706e-16,,,0,
+allenai/OLMo-2-1124-7B-Instruct,mmlu_pro,mc,direct|17|0.0,reasoned|17|0.0,21,0.6190476190476191,0.7619047619047619,0.6190476190476191,0.14739229024943312,0.7126096406869613,0.9999999999999999,0.6735751295336786,0.23076923076923078,0.11355311355311357,13,0.2760971914064614

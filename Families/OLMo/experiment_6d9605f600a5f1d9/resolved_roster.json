@@ -1,0 +1,93 @@
+[
+  {
+    "id": "allenai/OLMo-2-1124-7B",
+    "family": "OLMo",
+    "lineage": null,
+    "kind": "base",
+    "size_b": 7,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/allenai/OLMo-2-1124-7B",
+    "lineage_verified": false,
+    "enabled": true,
+    "revision": "7df9a82518afdecae4e8c026b27adccc8c1f0032",
+    "max_model_len": 4096,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": false,
+    "chat_kwargs": {},
+    "engine_kwargs": {},
+    "license_reviewed": false,
+    "hub_license": "apache-2.0",
+    "hub_base_model": null,
+    "architectures": [
+      "Olmo2ForCausalLM"
+    ],
+    "model_type": "olmo2",
+    "native_quantization": null,
+    "card_sha256": "a87d5b59422c6040caf0fc62cbcb5f7ace6c71489c1173cf6d9e000777eac962"
+  },
+  {
+    "id": "allenai/OLMo-2-1124-7B-Instruct",
+    "family": "OLMo",
+    "lineage": null,
+    "kind": "instruct",
+    "size_b": 7,
+    "base": "allenai/OLMo-2-1124-7B",
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct",
+    "lineage_verified": false,
+    "enabled": true,
+    "revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+    "max_model_len": 4096,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": false,
+    "chat_kwargs": {},
+    "engine_kwargs": {},
+    "license_reviewed": false,
+    "hub_license": "apache-2.0",
+    "hub_base_model": [
+      "allenai/OLMo-2-1124-7B-DPO"
+    ],
+    "architectures": [
+      "Olmo2ForCausalLM"
+    ],
+    "model_type": "olmo2",
+    "native_quantization": null,
+    "card_sha256": "1c64f5f2cb6158d24a2fa1241687cd93854154bc6cce6c2b86f6dc3e69cc87de"
+  },
+  {
+    "id": "allenai/OLMo-2-1124-13B-Instruct",
+    "family": "OLMo",
+    "lineage": null,
+    "kind": "instruct",
+    "size_b": 13,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/allenai/OLMo-2-1124-13B-Instruct",
+    "lineage_verified": false,
+    "enabled": true,
+    "revision": "3a5c85baefbb1896a54d56fe2e76c0395627ddf4",
+    "max_model_len": 4096,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": false,
+    "chat_kwargs": {},
+    "engine_kwargs": {},
+    "license_reviewed": false,
+    "hub_license": "apache-2.0",
+    "hub_base_model": [
+      "allenai/OLMo-2-1124-13B-Instruct-RLVR2"
+    ],
+    "architectures": [
+      "Olmo2ForCausalLM"
+    ],
+    "model_type": "olmo2",
+    "native_quantization": null,
+    "card_sha256": "ca667a7d680a0165460ba0549b1aa26732c52b841650040a2db773e28bddcd8c"
+  }
+]
