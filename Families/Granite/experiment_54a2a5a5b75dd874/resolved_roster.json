@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ibm-granite/granite-3.3-8b-base",
+    "family": "Granite",
+    "lineage": null,
+    "kind": "base",
+    "size_b": 8,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/ibm-granite/granite-3.3-8b-base",
+    "lineage_verified": false,
+    "enabled": false,
+    "revision": "cfb7adb44a974653cbb2ff883653971c54dba578",
+    "max_model_len": 16384,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": false,
+    "chat_kwargs": {},
+    "engine_kwargs": {},
+    "license_reviewed": false,
+    "hub_license": "apache-2.0",
+    "hub_base_model": null,
+    "architectures": [
+      "GraniteForCausalLM"
+    ],
+    "model_type": "granite",
+    "native_quantization": null,
+    "card_sha256": "bb7792802f1a1400f659e3fd4306d60b9f3f2393ac81a4f3c31f7357c16fd1da"
+  },
+  {
+    "id": "ibm-granite/granite-3.3-8b-instruct",
+    "family": "Granite",
+    "lineage": null,
+    "kind": "instruct",
+    "size_b": 8,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/ibm-granite/granite-3.3-8b-instruct",
+    "lineage_verified": false,
+    "enabled": false,
+    "revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+    "max_model_len": 16384,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": false,
+    "chat_kwargs": {},
+    "engine_kwargs": {},
+    "license_reviewed": false,
+    "hub_license": "apache-2.0",
+    "hub_base_model": [
+      "ibm-granite/granite-3.3-8b-base"
+    ],
+    "architectures": [
+      "GraniteForCausalLM"
+    ],
+    "model_type": "granite",
+    "native_quantization": null,
+    "card_sha256": "827b04e8019ae72397d7303e8b30f315d4b8f5d1cd18f9f4e3f0d7808f069a35"
+  }
+]

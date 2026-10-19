@@ -1,0 +1,13 @@
+{
+  "families": {
+    "Granite": 2
+  },
+  "lineage_families": {},
+  "covariance_rank": 0,
+  "issues": [
+    "Fewer than 20 models.",
+    "Fewer than six families.",
+    "Unknown or unaudited lineage entries; do not replace these with one shared unknown group.",
+    "Family/lineage covariance design is rank deficient."
+  ]
+}
