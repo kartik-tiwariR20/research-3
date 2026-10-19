@@ -1,0 +1,60 @@
+[
+  {
+    "id": "01-ai/Yi-1.5-9B",
+    "family": "Yi",
+    "lineage": null,
+    "kind": "base",
+    "size_b": 9,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/01-ai/Yi-1.5-9B",
+    "lineage_verified": false,
+    "enabled": false,
+    "revision": "80d5471b1eae28beae33e06eadbd4b48e74d4ce1",
+    "max_model_len": 4096,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": false,
+    "chat_kwargs": {},
+    "engine_kwargs": {},
+    "license_reviewed": false,
+    "hub_license": "apache-2.0",
+    "hub_base_model": null,
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "model_type": "llama",
+    "native_quantization": null,
+    "card_sha256": "5b245685718cc62faa5a588e87ccc215532ff93bb2a6f24f1fd698445432b460"
+  },
+  {
+    "id": "01-ai/Yi-1.5-9B-Chat",
+    "family": "Yi",
+    "lineage": null,
+    "kind": "instruct",
+    "size_b": 9,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/01-ai/Yi-1.5-9B-Chat",
+    "lineage_verified": false,
+    "enabled": false,
+    "revision": "1a0fc698cf883c4f5c325f026ca79f0ebd9955a5",
+    "max_model_len": 4096,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": false,
+    "chat_kwargs": {},
+    "engine_kwargs": {},
+    "license_reviewed": false,
+    "hub_license": "apache-2.0",
+    "hub_base_model": null,
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "model_type": "llama",
+    "native_quantization": null,
+    "card_sha256": "5b245685718cc62faa5a588e87ccc215532ff93bb2a6f24f1fd698445432b460"
+  }
+]

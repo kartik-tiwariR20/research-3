@@ -1,0 +1,4 @@
+benchmark,format,template,seed,temperature,a,b,relationship,accuracy_matched,n,error_a,error_b,double_fault,excess_cofailure,phi,adjusted_phi,kappa,wrong_agreement,wrong_chance_uniform,both_wrong_n,capa_onehot
+gsm8k,numeric,direct,17,0.0,01-ai/Yi-1.5-9B,01-ai/Yi-1.5-9B-Chat,same_family,False,7,1.0,0.14285714285714285,0.14285714285714285,0.0,,,0.0,0.0,,1,
+mmlu_pro,mc,direct,17,0.0,01-ai/Yi-1.5-9B,01-ai/Yi-1.5-9B-Chat,same_family,False,3,1.0,0.6666666666666666,0.6666666666666666,0.0,,,0.0,0.0,0.1111111111111111,2,-0.08
+mmlu_pro,mc,reasoned,17,0.0,01-ai/Yi-1.5-9B,01-ai/Yi-1.5-9B-Chat,same_family,False,9,0.6666666666666666,0.4444444444444444,0.4444444444444444,0.14814814814814814,0.6324555320336759,1.0,0.5714285714285714,0.5,0.12499999999999999,4,0.4302461899179367
