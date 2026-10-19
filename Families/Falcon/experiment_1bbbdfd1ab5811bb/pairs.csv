@@ -1,0 +1,13 @@
+benchmark,format,template,seed,temperature,a,b,relationship,accuracy_matched,n,error_a,error_b,double_fault,excess_cofailure,phi,adjusted_phi,kappa,wrong_agreement,wrong_chance_uniform,both_wrong_n,capa_onehot
+gsm8k,numeric,direct,17,0.0,tiiuae/Falcon3-10B-Instruct,tiiuae/Falcon3-7B-Base,same_family|same_family_different_size,False,12,0.08333333333333333,0.16666666666666666,0.0,-0.013888888888888888,-0.13483997249264842,-0.19999999999999998,-0.1249999999999995,,,0,
+gsm8k,numeric,direct,17,0.0,tiiuae/Falcon3-10B-Instruct,tiiuae/Falcon3-7B-Instruct,same_family|same_family_different_size,True,63,0.07936507936507936,0.1111111111111111,0.047619047619047616,0.03880070546737213,0.4567501391955699,0.55,0.448979591836735,0.0,,3,
+gsm8k,numeric,direct,17,0.0,tiiuae/Falcon3-7B-Base,tiiuae/Falcon3-7B-Instruct,same_family,True,10,0.2,0.2,0.1,0.06,0.3749999999999999,0.3749999999999999,0.37499999999999983,0.0,,1,
+gsm8k,numeric,reasoned,17,0.0,tiiuae/Falcon3-10B-Instruct,tiiuae/Falcon3-7B-Base,same_family|same_family_different_size,False,4,0.0,0.5,0.0,0.0,,,0.0,,,0,
+gsm8k,numeric,reasoned,17,0.0,tiiuae/Falcon3-10B-Instruct,tiiuae/Falcon3-7B-Instruct,same_family|same_family_different_size,True,23,0.13043478260869565,0.08695652173913043,0.043478260869565216,0.03213610586011342,0.3386481059780782,0.42500000000000004,0.3300970873786406,0.0,,1,
+gsm8k,numeric,reasoned,17,0.0,tiiuae/Falcon3-7B-Base,tiiuae/Falcon3-7B-Instruct,same_family,False,2,0.5,0.0,0.0,0.0,,,0.0,,,0,
+mmlu_pro,mc,direct,17,0.0,tiiuae/Falcon3-10B-Instruct,tiiuae/Falcon3-7B-Base,same_family|same_family_different_size,True,1,1.0,1.0,1.0,0.0,,,,0.0,0.1111111111111111,1,-0.125
+mmlu_pro,mc,direct,17,0.0,tiiuae/Falcon3-10B-Instruct,tiiuae/Falcon3-7B-Instruct,same_family|same_family_different_size,False,21,0.42857142857142855,0.6190476190476191,0.38095238095238093,0.11564625850340132,0.4812177395114531,0.7083333333333331,0.44736842105263164,0.375,0.1111111111111111,8,0.30331217541834965
+mmlu_pro,mc,direct,17,0.0,tiiuae/Falcon3-7B-Base,tiiuae/Falcon3-7B-Instruct,same_family,True,1,1.0,1.0,1.0,0.0,,,,0.0,0.1111111111111111,1,-0.125
+mmlu_pro,mc,reasoned,17,0.0,tiiuae/Falcon3-10B-Instruct,tiiuae/Falcon3-7B-Base,same_family|same_family_different_size,False,2,0.5,1.0,0.5,0.0,,,0.0,0.0,0.1111111111111111,1,-0.06273062730627306
+mmlu_pro,mc,reasoned,17,0.0,tiiuae/Falcon3-10B-Instruct,tiiuae/Falcon3-7B-Instruct,same_family|same_family_different_size,False,42,0.35714285714285715,0.42857142857142855,0.19047619047619047,0.037414965986394544,0.15778821040104285,0.18333333333333326,0.1560283687943262,0.25,0.1111111111111111,8,0.10862324247852613
+mmlu_pro,mc,reasoned,17,0.0,tiiuae/Falcon3-7B-Base,tiiuae/Falcon3-7B-Instruct,same_family,False,1,1.0,0.0,0.0,0.0,,,0.0,,,0,0.0

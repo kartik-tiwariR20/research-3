@@ -1,0 +1,15 @@
+benchmark,format,template,seed,temperature,relationship,matched_only,pairs,mean_adjusted_phi,low,high
+gsm8k,numeric,direct,17,0.0,same_family,False,3,0.24166666666666667,-0.08278241155396328,1.0
+gsm8k,numeric,direct,17,0.0,same_family,True,2,0.46249999999999997,-0.0029440943043884628,1.0
+gsm8k,numeric,direct,17,0.0,same_family_different_size,False,2,0.17500000000000004,-0.16922855337496281,1.0
+gsm8k,numeric,direct,17,0.0,same_family_different_size,True,1,0.55,0.10794634873323398,1.0
+gsm8k,numeric,reasoned,17,0.0,same_family,False,3,0.42500000000000004,-0.2,1.0000000000000002
+gsm8k,numeric,reasoned,17,0.0,same_family,True,1,0.42500000000000004,-0.25357142857142856,1.0
+gsm8k,numeric,reasoned,17,0.0,same_family_different_size,False,2,0.42500000000000004,-0.21008771929824563,1.0000000000000002
+gsm8k,numeric,reasoned,17,0.0,same_family_different_size,True,1,0.42500000000000004,-0.22222222222222224,1.0000000000000002
+mmlu_pro,mc,direct,17,0.0,same_family,False,3,0.7083333333333331,0.07642857142857144,1.0000000000000002
+mmlu_pro,mc,direct,17,0.0,same_family,True,2,,,
+mmlu_pro,mc,direct,17,0.0,same_family_different_size,False,2,0.7083333333333331,0.14155844155844177,1.0000000000000002
+mmlu_pro,mc,direct,17,0.0,same_family_different_size,True,1,,,
+mmlu_pro,mc,reasoned,17,0.0,same_family,False,3,0.18333333333333326,-0.1961515037593984,0.5409766394596117
+mmlu_pro,mc,reasoned,17,0.0,same_family_different_size,False,2,0.18333333333333326,-0.16666666666666657,0.549009324009324
