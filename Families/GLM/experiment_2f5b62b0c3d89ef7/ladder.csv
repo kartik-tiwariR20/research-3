@@ -1,0 +1,6 @@
+benchmark,format,template,seed,temperature,relationship,matched_only,pairs,mean_adjusted_phi,low,high
+gsm8k,numeric,direct,17,0.0,same_family,False,1,,,
+gsm8k,numeric,reasoned,17,0.0,same_family,False,1,,,
+gsm8k,numeric,reasoned,17,0.0,same_family,True,1,,,
+mmlu_pro,mc,reasoned,17,0.0,same_family,False,1,,,
+mmlu_pro,mc,reasoned,17,0.0,same_family,True,1,,,

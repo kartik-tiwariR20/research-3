@@ -1,0 +1,60 @@
+[
+  {
+    "id": "THUDM/glm-4-9b",
+    "family": "GLM",
+    "lineage": null,
+    "kind": "base",
+    "size_b": 9,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/THUDM/glm-4-9b",
+    "lineage_verified": false,
+    "enabled": false,
+    "revision": "8cd2b585357ba9e702647ac4e6fa4fafe5cc7bee",
+    "max_model_len": 8192,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": true,
+    "chat_kwargs": {},
+    "engine_kwargs": {},
+    "license_reviewed": false,
+    "hub_license": "other",
+    "hub_base_model": null,
+    "architectures": [
+      "ChatGLMModel"
+    ],
+    "model_type": "chatglm",
+    "native_quantization": null,
+    "card_sha256": "8fb3a82508954d7575d6fce73d46b41de68298863e24638a37e90607502cfcc5"
+  },
+  {
+    "id": "THUDM/glm-4-9b-chat",
+    "family": "GLM",
+    "lineage": null,
+    "kind": "instruct",
+    "size_b": 9,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/THUDM/glm-4-9b-chat",
+    "lineage_verified": false,
+    "enabled": false,
+    "revision": "bd8234fe5e0c09c48637a92abb0c797cb5fa0e73",
+    "max_model_len": 16384,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": true,
+    "chat_kwargs": {},
+    "engine_kwargs": {},
+    "license_reviewed": false,
+    "hub_license": "other",
+    "hub_base_model": null,
+    "architectures": [
+      "ChatGLMModel"
+    ],
+    "model_type": "chatglm",
+    "native_quantization": null,
+    "card_sha256": "015d2a493396b4d241cc6dc553486c35dd608841478b658003b99f41d3cdd4ac"
+  }
+]

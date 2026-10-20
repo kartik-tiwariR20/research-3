@@ -1,0 +1,4 @@
+benchmark,format,template,seed,temperature,a,b,relationship,accuracy_matched,n,error_a,error_b,double_fault,excess_cofailure,phi,adjusted_phi,kappa,wrong_agreement,wrong_chance_uniform,both_wrong_n,capa_onehot
+gsm8k,numeric,direct,17,0.0,THUDM/glm-4-9b,THUDM/glm-4-9b-chat,same_family,False,1,1.0,0.0,0.0,0.0,,,0.0,,,0,
+gsm8k,numeric,reasoned,17,0.0,THUDM/glm-4-9b,THUDM/glm-4-9b-chat,same_family,True,1,0.0,0.0,0.0,0.0,,,,,,0,
+mmlu_pro,mc,reasoned,17,0.0,THUDM/glm-4-9b,THUDM/glm-4-9b-chat,same_family,True,2,0.0,0.0,0.0,0.0,,,,,,0,
