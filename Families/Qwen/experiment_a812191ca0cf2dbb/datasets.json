@@ -1,0 +1,16 @@
+{
+  "mmlu_pro": {
+    "repo": "TIGER-Lab/MMLU-Pro",
+    "revision": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+    "config": null,
+    "split": "test",
+    "fingerprint": "c54621f4b1475bdf"
+  },
+  "gsm8k": {
+    "repo": "openai/gsm8k",
+    "revision": "740312add88f781978c0658806c59bc2815b9866",
+    "config": "main",
+    "split": "test",
+    "fingerprint": "0b3e31f6665214ba"
+  }
+}
