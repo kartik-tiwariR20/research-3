@@ -1,0 +1,64 @@
+[
+  {
+    "id": "internlm/internlm2_5-7b",
+    "family": "InternLM",
+    "lineage": null,
+    "kind": "base",
+    "size_b": 7,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/internlm/internlm2_5-7b",
+    "lineage_verified": false,
+    "enabled": false,
+    "revision": "0481d88c24f938d97226eb8556cf1de89ba60772",
+    "max_model_len": 16384,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": true,
+    "chat_kwargs": {},
+    "engine_kwargs": {
+      "trust_remote_code": true
+    },
+    "license_reviewed": false,
+    "hub_license": null,
+    "hub_base_model": null,
+    "architectures": [
+      "InternLM2ForCausalLM"
+    ],
+    "model_type": "internlm2",
+    "native_quantization": null,
+    "card_sha256": "563681ef1d4f2197049289c43791182223bce07c560ebacd9244a32d39d3fdb9"
+  },
+  {
+    "id": "internlm/internlm2_5-7b-chat",
+    "family": "InternLM",
+    "lineage": null,
+    "kind": "instruct",
+    "size_b": 7,
+    "base": null,
+    "teacher": null,
+    "provenance_url": "https://huggingface.co/internlm/internlm2_5-7b-chat",
+    "lineage_verified": false,
+    "enabled": false,
+    "revision": "eb72b541689b0432dade0435feb339b89fdd39ff",
+    "max_model_len": 16384,
+    "max_tokens": 2048,
+    "dtype": "auto",
+    "quantization": null,
+    "trust_remote_code": true,
+    "chat_kwargs": {},
+    "engine_kwargs": {
+      "trust_remote_code": true
+    },
+    "license_reviewed": false,
+    "hub_license": "other",
+    "hub_base_model": null,
+    "architectures": [
+      "InternLM2ForCausalLM"
+    ],
+    "model_type": "internlm2",
+    "native_quantization": null,
+    "card_sha256": "6fc478eb67e16606166919bbbed9df50b0cec516a42b0f40795169c7070e3da5"
+  }
+]
